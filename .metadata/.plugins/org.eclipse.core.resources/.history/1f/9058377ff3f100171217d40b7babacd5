@@ -13,6 +13,7 @@ public class Test {
 
 		int num;
 		Scanner scan = new Scanner(System.in);
+
 		for(;;){
 		num = scan.nextInt();
 		if(num ==0){

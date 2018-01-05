@@ -34,16 +34,17 @@ public class SortUtil {
 	public static void selectSort(int data[]) {
 		for (int i = 0; i < data.length; i++) {
 			int select = i;
-			for (int j = i +1; j < data.length; j++) {
+			for (int j = i ; j < data.length; j++) {
 				if (data[select] > data[j]) {
 					select = j;
 				}
-			}
-			if (select != i) {
-				// 交换数据
-				data[i] = data[i] ^ data[select];
-				data[select] = data[i] ^ data[select];
-				data[i] = data[i] ^ data[select];
+				if (select != i) {
+					// 交换数据
+					data[i] = data[i] ^ data[select];
+					data[select] = data[i] ^ data[select];
+					data[i] = data[i] ^ data[select];
+				}
+
 			}
 		}
 	}

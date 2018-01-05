@@ -13,30 +13,17 @@ public class Test {
 
 		int num;
 		Scanner scan = new Scanner(System.in);
-		for(;;){
 		num = scan.nextInt();
-		if(num ==0){
-			break;
-		}
 		int data[] = new int[num];
 		Random random = new Random();
 		for (int i = 0; i < num; i++) {
 			data[i] = random.nextInt(num);
 		}
 		int data1[] = Arrays.copyOf(data, num);
-		printArray(data);
-		//测试冒泡
 		long currentTime = System.currentTimeMillis();
-		SortUtil.bubbleSort(data);
-		System.out.println("排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data);
-		//测试选择
-		currentTime = System.currentTimeMillis();
-		SortUtil.selectSort(data1);
-		System.out.println("排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data1);
+		SortUtil.bubbleSort(data1);
+		System.out.pirntln("排序用时间：")
 		
-		}
 
 	}
 	

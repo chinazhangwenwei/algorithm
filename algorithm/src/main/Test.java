@@ -24,17 +24,19 @@ public class Test {
 			data[i] = random.nextInt(num);
 		}
 		int data1[] = Arrays.copyOf(data, num);
-		printArray(data);
+		//printArray(data);
 		//测试冒泡
 		long currentTime = System.currentTimeMillis();
-		SortUtil.bubbleSort(data);
-		System.out.println("排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data);
+		SortUtil.selectSort(data);
+		System.out.println("選擇排序用时间："+(System.currentTimeMillis()-currentTime));
+		//printArray(data);
 		//测试选择
 		currentTime = System.currentTimeMillis();
-		SortUtil.selectSort(data1);
-		System.out.println("排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data1);
+		SortUtil.insertSort(data1);
+		System.out.println("插入排序用时间："+(System.currentTimeMillis()-currentTime));
+		//printArray(data1);
+		
+		
 		
 		}
 

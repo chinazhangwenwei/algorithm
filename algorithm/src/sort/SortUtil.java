@@ -49,12 +49,32 @@ public class SortUtil {
 	}
 	
 	/**
-	 * 直接插入排序
+	 * 直接插入排序 属于稳定性排序
 	 * @param data
 	 */
 	public static void insertSort(int data[]){
 		
-		
+		int j ;
+		int temp;
+		for(int i =1;i<data.length;i++){
+			j=i;
+			temp= data[i];
+			while(j>0&&temp<data[j-1]){
+				data[j]=data[j-1];
+				j--;
+			}
+			data[j]=temp;
+		}		
+	}
+	
+	
+	/**
+	 * 快排，非稳定性排序
+	 * @param data
+	 * @param start
+	 * @param end
+	 */
+	public static void quickSort(int data [],int start,int end){
 		
 		
 		

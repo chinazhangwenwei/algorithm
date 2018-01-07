@@ -24,20 +24,29 @@ public class Test {
 			data[i] = random.nextInt(num);
 		}
 		int data1[] = Arrays.copyOf(data, num);
-		//printArray(data);
+		int data2[] = Arrays.copyOf(data,num);
+		int data3[]=Arrays.copyOf(data, num);
+		printArray(data);
 		//测试冒泡
 		long currentTime = System.currentTimeMillis();
-		SortUtil.selectSort(data);
-		System.out.println("選擇排序用时间："+(System.currentTimeMillis()-currentTime));
-		//printArray(data);
+		SortUtil.bubbleSort(data);
+		System.out.println("冒泡排序用时间："+(System.currentTimeMillis()-currentTime));
+		printArray(data);
 		//测试选择
 		currentTime = System.currentTimeMillis();
-		SortUtil.insertSort(data1);
+		SortUtil.selectSort(data1);
+		System.out.println("選擇排序用时间："+(System.currentTimeMillis()-currentTime));
+		printArray(data1);
+		//测试插入
+		currentTime = System.currentTimeMillis();
+		SortUtil.insertSort(data2);
 		System.out.println("插入排序用时间："+(System.currentTimeMillis()-currentTime));
-		//printArray(data1);
-		
-		
-		
+		printArray(data2);
+		//测试快排
+		currentTime = System.currentTimeMillis();
+		SortUtil.quickSort(data3,0,num-1);
+		System.out.println("快速排序用时间："+(System.currentTimeMillis()-currentTime));
+		printArray(data3);
 		}
 
 	}

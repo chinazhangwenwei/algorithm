@@ -7,7 +7,7 @@ public class SortUtil {
 	 */
 	public static void bubbleSort(int data[]) {
 
-		for (int i = 0; i < data.length; i++) {
+		for (int i = 0; i < data.length-1; i++) {
 
 			for (int j = 0; j < data.length - 1 - i; j++) {
 
@@ -75,9 +75,31 @@ public class SortUtil {
 	 * @param end
 	 */
 	public static void quickSort(int data [],int start,int end){
+		if(start>=end){
+			return;
+		}
+		//计算中值
+		int mid = start-1;
+		int temp =0;
+		for(int i=start;i<end;i++){
+			if(data[i]<=data[end]){
+				mid++;
+				 temp = data[i];
+				data[i]=data[mid];
+				data[mid]=temp;
 		
-		
-		
+			}
+		}
+		//将中间值加入索引位置
+		mid ++;
+		temp =data[end];
+		data[end]=data[mid];
+		data[mid]=temp;
+					
+		//递归
+		quickSort(data,start,mid-1)	;
+		quickSort(data,mid+1,end);
+					
 	}
 
 }

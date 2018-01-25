@@ -26,6 +26,7 @@ public class Test {
 		int data1[] = Arrays.copyOf(data, num);
 		int data2[] = Arrays.copyOf(data,num);
 		int data3[]=Arrays.copyOf(data, num);
+		int data4[] = Arrays.copyOf(data,num);
 		printArray(data);
 		//测试冒泡
 		long currentTime = System.currentTimeMillis();
@@ -44,9 +45,14 @@ public class Test {
 		printArray(data2);
 		//测试快排
 		currentTime = System.currentTimeMillis();
-		SortUtil.quickSort(data3,0,num-1);
+		SortUtil.quickSort(data3,0,data3.length-1);
 		System.out.println("快速排序用时间："+(System.currentTimeMillis()-currentTime));
 		printArray(data3);
+		//测试堆排
+		currentTime = System.currentTimeMillis();
+		SortUtil.heapSort(data4);
+		System.out.println("堆排序用时间："+(System.currentTimeMillis()-currentTime));
+		printArray(data4);
 		}
 
 	}

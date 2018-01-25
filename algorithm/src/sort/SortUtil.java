@@ -7,7 +7,7 @@ public class SortUtil {
 	 */
 	public static void bubbleSort(int data[]) {
 
-		for (int i = 0; i < data.length-1; i++) {
+		for (int i = 0; i < data.length - 1; i++) {
 
 			for (int j = 0; j < data.length - 1 - i; j++) {
 
@@ -34,7 +34,7 @@ public class SortUtil {
 	public static void selectSort(int data[]) {
 		for (int i = 0; i < data.length; i++) {
 			int select = i;
-			for (int j = i +1; j < data.length; j++) {
+			for (int j = i + 1; j < data.length; j++) {
 				if (data[select] > data[j]) {
 					select = j;
 				}
@@ -47,59 +47,126 @@ public class SortUtil {
 			}
 		}
 	}
-	
+
 	/**
 	 * 直接插入排序 属于稳定性排序
+	 * 
 	 * @param data
 	 */
-	public static void insertSort(int data[]){
-		
-		int j ;
+	public static void insertSort(int data[]) {
+
+		int j;
 		int temp;
-		for(int i =1;i<data.length;i++){
-			j=i;
-			temp= data[i];
-			while(j>0&&temp<data[j-1]){
-				data[j]=data[j-1];
+		for (int i = 1; i < data.length; i++) {
+			j = i;
+			temp = data[i];
+			while (j > 0 && temp < data[j - 1]) {
+				data[j] = data[j - 1];
 				j--;
 			}
-			data[j]=temp;
-		}		
+			data[j] = temp;
+		}
 	}
-	
-	
+
 	/**
 	 * 快排，非稳定性排序
+	 * 
 	 * @param data
 	 * @param start
 	 * @param end
 	 */
-	public static void quickSort(int data [],int start,int end){
-		if(start>=end){
+	public static void quickSort(int data[], int start, int end) {
+		if (start >= end) {
 			return;
 		}
-		//计算中值
-		int mid = start-1;
-		int temp =0;
-		for(int i=start;i<end;i++){
-			if(data[i]<=data[end]){
+		// 计算中值
+		int mid = start - 1;
+		int temp = 0;
+		for (int i = start; i < end; i++) {
+			if (data[i] <= data[end]) {
 				mid++;
-				 temp = data[i];
-				data[i]=data[mid];
-				data[mid]=temp;
-		
+				temp = data[i];
+				data[i] = data[mid];
+				data[mid] = temp;
+
 			}
 		}
-		//将中间值加入索引位置
-		mid ++;
-		temp =data[end];
-		data[end]=data[mid];
-		data[mid]=temp;
-					
-		//递归
-		quickSort(data,start,mid-1)	;
-		quickSort(data,mid+1,end);
-					
+		// 将中间值加入索引位置
+		mid++;
+		temp = data[end];
+		data[end] = data[mid];
+		data[mid] = temp;
+
+		// 递归
+		quickSort(data, start, mid - 1);
+		quickSort(data, mid + 1, end);
+
+	}
+
+	/**
+	 * 堆排序，非稳定排序，选择排序
+	 * 
+	 * @param data
+	 */
+	public static void heapSort(int data[]) {
+		int length = data.length;
+		// 构建大顶堆
+		for (int i = (length - 2) / 2; i >= 0; i--) {
+
+			ajustHeap(data, i, length);
+
+		}
+
+		int end = length - 1;
+
+		
+		// 交换数据，重新调整堆
+		for (int j = end; j > 0; j--) {
+			
+			int temp = data[end];
+			data[end] = data[0];
+			data[0] = temp;
+			
+			ajustHeap(data, 0, j);
+
+
+		}
+
+	}
+
+	public static void ajustHeap(int data[], int index, int length) {
+
+		int temp = data[index];
+
+		for (int j = index; j <= (length - 2) / 2;) {
+
+			int childLeft = data[2 * j + 1];
+			int childRight = childLeft;
+			if ((2 * j + 2) < length) {
+				childRight = data[2 * j + 2];
+			}
+			// 如果根节点比较大，则跳出循环
+			if (temp > childLeft && temp > childRight) {
+
+				break;
+
+			} else {
+				// 最大的值
+				if (childRight > childLeft) {
+					data[index] = childRight;
+					j = 2 * j + 2;
+				} else {
+					data[index] = childLeft;
+					j = 2 * j + 1;
+				}
+
+				index = j;
+
+			}
+
+		}
+		data[index] = temp;
+
 	}
 
 }

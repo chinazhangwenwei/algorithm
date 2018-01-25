@@ -146,10 +146,10 @@ public class SortUtil {
 
 		
 		// 交换数据，重新调整堆
-		for (int j = end; j > 0; j--) {
+		for (int j = end; j >1; j--) {
 			
-			int temp = data[end];
-			data[end] = data[0];
+			int temp = data[j];
+			data[j] = data[0];
 			data[0] = temp;
 			
 			ajustHeap(data, 0, j);

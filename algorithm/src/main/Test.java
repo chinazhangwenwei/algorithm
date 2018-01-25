@@ -26,27 +26,28 @@ public class Test {
 		int data1[] = Arrays.copyOf(data, num);
 		int data2[] = Arrays.copyOf(data,num);
 		int data3[]=Arrays.copyOf(data, num);
-		printArray(data);
+		//printArray(data);
 		//测试冒泡
 		long currentTime = System.currentTimeMillis();
 		SortUtil.bubbleSort(data);
 		System.out.println("冒泡排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data);
+		//printArray(data);
 		//测试选择
 		currentTime = System.currentTimeMillis();
 		SortUtil.selectSort(data1);
 		System.out.println("選擇排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data1);
+		//printArray(data1);
 		//测试插入
+	
 		currentTime = System.currentTimeMillis();
 		SortUtil.insertSort(data2);
 		System.out.println("插入排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data2);
+	//	printArray(data2);
 		//测试快排
 		currentTime = System.currentTimeMillis();
 		SortUtil.quickSort(data3,0,num-1);
 		System.out.println("快速排序用时间："+(System.currentTimeMillis()-currentTime));
-		printArray(data3);
+	//	printArray(data3);
 		}
 
 	}

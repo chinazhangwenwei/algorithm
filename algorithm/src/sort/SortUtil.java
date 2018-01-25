@@ -13,13 +13,13 @@ public class SortUtil {
 
 				if (data[j] > data[j + 1]) {
 					// 交换数据
-					int temp = data[j];
-					data[j] = data[j + 1];
-					data[j + 1] = temp;
+//					int temp = data[j];
+//					data[j] = data[j + 1];
+//					data[j + 1] = temp;
 
-					// data[j] = data[j]^data[j+1];
-					// data[j+1]=data[j]^data[j+1];
-					// data[j] = data[j]^data[j+1];
+					 data[j] = data[j]^data[j+1];
+					 data[j+1]=data[j]^data[j+1];
+					 data[j] = data[j]^data[j+1];
 
 				}
 			}
@@ -41,12 +41,37 @@ public class SortUtil {
 			}
 			if (select != i) {
 				// 交换数据
-				data[i] = data[i] ^ data[select];
-				data[select] = data[i] ^ data[select];
-				data[i] = data[i] ^ data[select];
+				int temp = data[i];
+				data[i]=data[select];
+				data[select]=temp;
+//				data[i] = data[i] ^ data[select];
+//				data[select] = data[i] ^ data[select];
+//				data[i] = data[i] ^ data[select];
 			}
 		}
 	}
+	
+	/**
+	 * 直接插入排序 实现
+	 * @param unsorted
+	 */
+	public  static void insertion_sort(int[] unsorted)
+     {
+         for (int i = 1; i < unsorted.length; i++)
+         {
+             if (unsorted[i - 1] > unsorted[i])
+             {
+                 int temp = unsorted[i];
+                 int j = i;
+                 while (j > 0 && unsorted[j - 1] > temp)
+                 {
+                     unsorted[j] = unsorted[j - 1];
+                     j--;
+                 }
+                 unsorted[j] = temp;
+             }
+         }
+     }
 	
 	/**
 	 * 直接插入排序 属于稳定性排序

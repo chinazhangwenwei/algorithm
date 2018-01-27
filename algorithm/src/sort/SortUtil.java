@@ -13,10 +13,6 @@ public class SortUtil {
 
 				if (data[j] > data[j + 1]) {
 					// 交换数据
-//					int temp = data[j];
-//					data[j] = data[j + 1];
-//					data[j + 1] = temp;
-
 					 data[j] = data[j]^data[j+1];
 					 data[j+1]=data[j]^data[j+1];
 					 data[j] = data[j]^data[j+1];
@@ -44,9 +40,6 @@ public class SortUtil {
 				int temp = data[i];
 				data[i]=data[select];
 				data[select]=temp;
-//				data[i] = data[i] ^ data[select];
-//				data[select] = data[i] ^ data[select];
-//				data[i] = data[i] ^ data[select];
 			}
 		}
 	}
